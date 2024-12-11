@@ -1,6 +1,6 @@
 ## Overiew
 
-This repo includes scripts I wrote for Lucio to be used in his colloidal structures.
+This repo includes scripts I wrote for Lucio to be used in his colloidal structures, whereby the structures involve Fe ions surronded by water molecules. 
 
 ## Objectives
 
