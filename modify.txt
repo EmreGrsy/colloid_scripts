@@ -1,0 +1,24 @@
+gawk -i inplace '{if(NR>=30 && NF==9){t = $3; $3 = $9; $9 = t}{print $0}}' i-h_end_of_*
+
+sed  -i '/ Masses/,/ Atoms # full/{//p;d;}' i-h_end_of_*
+
+sed  -i '/ Masses/d' i-h_end_of_*
+
+sed -i '16 i \ \ Masses' i-h_end_of_*
+sed -i '17 i \ \' i-h_end_of_*
+sed -i '18 i \ \ 1 15.9994' i-h_end_of_*
+sed -i '19 i \ \ 2 1.008' i-h_end_of*
+sed -i '20 i \ \ 3 55.85' i-h_end_of*
+sed -i '21 i \ \ 4 15.9994' i-h_end_of*
+sed -i '22 i \ \ 5 1.008' i-h_end_of*
+sed -i '23 i \ \ 6 15.9994' i-h_end_of*
+
+sed  -i '/ 6 15.9994/,/ Atoms # full/{//p;d;}' i-h_end_of_*
+
+sed -i '24 i \ \ ' i-h_end_of*
+
+sed -i 's/ . atom types/ 6 atom types/g' i-h_end_of_*
+
+sed -i 's/ . bond types/ 2 bond types/g' i-h_end_of_*
+
+sed -i 's/ . angle types/ 1 angle types/g' i-h_end_of_*

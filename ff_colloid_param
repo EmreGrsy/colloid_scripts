@@ -1,0 +1,33 @@
+###########################################################################
+pair_coeff 1 3 lj/cut/coul/long 0.816080877596 2.25037620357
+pair_coeff 2 3 lj/cut/coul/long 0.0 0.675
+pair_coeff 1 4 lj/cut/coul/long 0.236819103742 3.07537620356
+pair_coeff 2 4 lj/cut/coul/long 0.0 1.5
+pair_coeff 1 5 lj/cut/coul/long 0.132386011224 1.80037620357
+pair_coeff 2 5 lj/cut/coul/long 0.0 0.225
+pair_coeff 1 1 lj/cut/coul/long 0.151999999721 3.15075240713
+pair_coeff 1 2 lj/cut/coul/long 0.0 1.57537620357
+pair_coeff 1 6 lj/cut/coul/long 0.118409519779 2.75037620357
+pair_coeff 2 2 lj/cut/coul/long 0.0 0.0
+pair_coeff 2 6 lj/cut/coul/long 0.0 1.175
+
+#FeIII
+pair_coeff 3 3 buck/coul/long 717672.614289577 0.154 0
+pair_coeff 3 4 buck/coul/long 1722622.57555827 0.175 1149.8216819361
+pair_coeff 3 5 buck/coul/long 0 0.001 0
+pair_coeff 4 4 buck/coul/long 271718.837478898 0.234 745.5473210925
+pair_coeff 4 5 buck/coul/long 141215.402560316 0.104 7.8867053453
+pair_coeff 5 5 buck/coul/long 0 0.001 0
+
+##Ox
+pair_coeff 3 6 buck/coul/long 278514.640826935 0.187 424.752122091
+pair_coeff 4 6 buck/coul/long 366142.717012579 0.238 765.6099925849
+pair_coeff 5 6 buck/coul/long 401277.13608585 0.14 81.0116838539
+pair_coeff 6 6 buck/coul/long 406347.34214066 0.239 1.0838454714
+
+bond_coeff      1 450 0.9572
+bond_coeff      2 369.6 0.974
+
+# after using vmd topo tools it messes up bond type order, bond type 3 is set to bond type 2
+angle_coeff     1 55 104.52
+

@@ -1,0 +1,44 @@
+log		g-cluster.log append
+
+label		loop
+variable 	i1 loop 1 200
+	clear
+	units		real
+	atom_style      full
+	bond_style      harmonic
+	angle_style     harmonic
+
+	pair_style      hybrid lj/cut/coul/long 8.0 buck/coul/long 8.0
+
+	read_data       e.docking_of_${i1}.min
+	include         ff_colloid_param	
+
+	kspace_style    pppm 1.0e-4
+
+#	change_box	all x scale 2.0 y scale 2.0 z scale 2.0 units box
+
+	print		"e.docking_of_${i1}.min"
+
+	bond_coeff      1 450 0.9572
+	bond_coeff	2 369.6 0.974
+
+	angle_coeff     1 55 104.52
+
+	mass 		1 15.9994
+	mass 		2 1.008
+	mass 		3 55.85
+	mass 		4 15.9994
+	mass 		5 1.008
+	mass 		6 15.9994
+
+	compute		1 all aggregate/atom 3.5
+	dump            dmp all custom 1 docking_of_ion_${i1}.data_dump id c_1 type q x y z ix iy iz
+	dump_modify     dmp sort id
+	run		0
+        
+	variable 	molid atom c_1
+        set 		group all mol v_molid        
+	
+	write_data	g.docking_of_ion_${i1}.min
+	next		i1
+jump SELF loop
