@@ -1,3 +1,7 @@
+## Overiew
+
+This repo includes scripts I wrote for Lucio to be used in his colloidal structures.
+
 ## Objectives
 
 1. Remove all water except chemisorbed water (Fe-Ow < 2.6 Å); keep the chemisorbed water intact.
@@ -8,44 +12,19 @@
 
 ## Solution
 
-### Step 1
-Fe-O and Fe-(OH) bonds were assigned using TopoTools (`a-reconstruct_beforeMin.tcl`).
-
-### Step 2
-After using TopoTools—which erases bond and angle coefficients—the coefficients were reassigned (`b-reconstruct_beforeMin.sh`).
-
-### Step 3
-TopoTools reallocates bonds and angles. Due to the reallocation procedure, some bond types were changed from type 3 to type 2. These were corrected using different `ff_param` files.
-
-### Step 4
-After obtaining the minimized geometry, dummy bonds (bond type 3) were converted back to bond type 2 (`a1-fix_bondError.tcl` or `search_and_replace.txt`).
-
-### Step 5
-All water except the chemisorbed water (Fe-Ow < 2.6 Å) was assigned to atom type 7 for removal (`a2-reconstruct.tcl`).
-
-### Step 6
-Type 7 atoms were deleted (`b-reconstruct.lmp`).
-
-### Step 7
-Bonds and angles were analyzed to check for issues (`c-analyze_topology.tcl`).
-
-### Step 8
-For the results, different atom types were written out to the `.log` file. Wandering (OH)⁻ and (H)⁺ atoms were assigned as atom type 7 for deletion (`d-colloid_data.tcl`).
-
-### Step 9
-Free (OH) molecules were assigned to atom type 7 for deletion. The `.log` file also includes details requested by Robert (`d-colloid_data.tcl`).
-
-### Step 10
-Type 7 atoms were deleted (`e-reconstruct.lmp`).
-
-### Step 11
-Minimization results were read (`*min.log`), and potential energy (E_Pot) was scraped from the log files and added to the result data (`read_energy.sh`).
-
-### Step 12
-Bonds between Fe and O atoms were defined using TopoTools. Bonds stretching over the periodic boundaries were connected. After obtaining the final connected structure, bonds were erased (`f-combine.tcl`).
-
-### Step 13
-Clusters were assigned (`g-cluster.tcl`).
+1. Fe-O and Fe-(OH) bonds were assigned using TopoTools (`a-reconstruct_beforeMin.tcl`).
+2. After using TopoTools—which erases bond and angle coefficients—the coefficients were reassigned (`b-reconstruct_beforeMin.sh`).
+3. TopoTools reallocates bonds and angles. Due to the reallocation procedure, some bond types were changed from type 3 to type 2. These were corrected using different `ff_param` files.
+4. After obtaining the minimized geometry, dummy bonds (bond type 3) were converted back to bond type 2 (`a1-fix_bondError.tcl` or `search_and_replace.txt`).
+5. All water except the chemisorbed water (Fe-Ow < 2.6 Å) was assigned to atom type 7 for removal (`a2-reconstruct.tcl`).
+6. Type 7 atoms were deleted (`b-reconstruct.lmp`).
+7. Bonds and angles were analyzed to check for issues (`c-analyze_topology.tcl`).
+8. For the results, different atom types were written out to the `.log` file. Wandering (OH)⁻ and (H)⁺ atoms were assigned as atom type 7 for deletion (`d-colloid_data.tcl`).
+9. Free (OH) molecules were assigned to atom type 7 for deletion. The `.log` file also includes details requested by Robert (`d-colloid_data.tcl`).
+10. Type 7 atoms were deleted (`e-reconstruct.lmp`).
+11. Minimization results were read (`*min.log`), and potential energy (E_Pot) was scraped from the log files and added to the result data (`read_energy.sh`).
+12. Bonds between Fe and O atoms were defined using TopoTools. Bonds stretching over the periodic boundaries were connected. After obtaining the final connected structure, bonds were erased (`f-combine.tcl`).
+13. Clusters were assigned (`g-cluster.tcl`).
 
 ### Additional Steps
 
