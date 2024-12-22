@@ -1,6 +1,6 @@
 ## Overiew
 
-This repository contains scripts I wrote for Lucio to analyze colloidal clusters, clusters involve Fe ions which are surrounded by water molecules.
+This repository contains the scripts used in the investigation of colloidal clusters, which are clusters involving Fe ions surrounded by water molecules.
 
 <img src="end_of_file_error.png" alt="Table of Contents Figure" width="35%">
 
